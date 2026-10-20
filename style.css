@@ -1,0 +1,16 @@
+:root { --val-string: #1659ac; --val-number: #237344; --val-boolean: #9d470b; --val-path: #7041a7; }
+[data-theme="dark"] { --val-string: #9cc9ff; --val-number: #97d5a8; --val-boolean: #ffc498; --val-path: #d2b7ff; }
+.json-workspace { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.json-workspace > .ui-panel { margin: 0; }
+#jsonInput, #outputArea { font: 14px/1.7 ui-monospace, "SFMono-Regular", Consolas, monospace; }
+#jsonInput { height: 480px; margin-bottom: 16px; }
+#jsonInput.dragover { outline: 3px dashed var(--c-accent); }
+#outputArea { min-height: 480px; max-height: 700px; overflow: auto; padding: 16px; border: 1px solid var(--c-border); border-radius: 8px; background: var(--c-bg-main); white-space: pre; }
+.node > .node { margin-left: 18px; }
+.path { color: var(--val-path); font-weight: 650; }
+.type-label { color: var(--c-text-sub); margin-left: 8px; }
+.val-string { color: var(--val-string); }
+.val-number { color: var(--val-number); }
+.val-boolean { color: var(--val-boolean); }
+.file-label { margin-top: 20px; }
+@media (max-width: 800px) { .json-workspace { grid-template-columns: minmax(0, 1fr); } #jsonInput { height: 320px; } #outputArea { min-height: 240px; } }
