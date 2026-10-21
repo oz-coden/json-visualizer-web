@@ -13,4 +13,5 @@
 .val-number { color: var(--val-number); }
 .val-boolean { color: var(--val-boolean); }
 .file-label { margin-top: 20px; }
+#jsonFile { display: block; width: 100%; max-width: 100%; min-width: 0; }
 @media (max-width: 800px) { .json-workspace { grid-template-columns: minmax(0, 1fr); } #jsonInput { height: 320px; } #outputArea { min-height: 240px; } }

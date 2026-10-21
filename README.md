@@ -37,7 +37,7 @@ The aim is to make nested objects and arrays easier to inspect when writing Java
 
 ## Requirements, Dependencies
 
-- A current web browser with JavaScript enabled and support for the File API.
+- The latest stable version of a web browser with JavaScript enabled.
 
 The user interface is in Japanese. Shared UI assets are included in this repository. Python 3 is only needed for the example local server command below; an equivalent static HTTP server can also be used.
 
@@ -60,7 +60,9 @@ JSON parsing and file reading run entirely in the browser. The application does 
 
 1. Paste JSON into **JSONを入力** and click **解析する**. Alternatively, choose a file with **JSONファイルを開く**, or drop it into the text area; files are analyzed automatically.
 2. Read the structure, values and paths under **JavaScriptでのアクセスパス**. `data` represents the parsed root value; replace it with the variable name used in your program.
-3. Click **リセット** to clear the input and output.
+3. Click **リセット** to clear the input and output. Resetting or editing the input cancels an in-progress file read so that its result cannot overwrite the new input.
+
+Numeric values are displayed using the original JSON number literal through native `JSON.parse` source access. If source access is unavailable, or a deeply nested input requires the fallback parser, numeric values are marked as approximate; out-of-range values are identified explicitly. Access paths are unchanged.
 
 Files are limited to 5 MiB (5 × 1024 × 1024 bytes). The display is limited to 3,000 nodes, including the root, and a depth of 100. Omitted content is indicated in the output. Invalid JSON produces an error message. These display limits do not limit the size of text pasted into the input.
 
@@ -126,7 +128,7 @@ JSONデータをJavaScriptで扱う際に、入れ子になったオブジェク
 
 ## 前提・依存
 
-- JavaScriptが有効で、File APIに対応した最新のWebブラウザ。
+- JavaScriptが有効な最新版（安定版）のWebブラウザ。
 
 画面の言語は日本語です。共通UIのファイルはこのリポジトリに同梱しています。Python 3は下記のローカルサーバーのコマンドを使う場合に必要で、同等の静的HTTPサーバーでも実行できます。
 
@@ -149,7 +151,9 @@ JSONの解析とファイルの読み込みはブラウザ内で行います。�
 
 1. **JSONを入力**にJSONを貼り付け、**解析する**を押します。**JSONファイルを開く**でファイルを選ぶか、入力欄にドロップすると、自動で解析します。
 2. **JavaScriptでのアクセスパス**で構造・値・パスを確認します。`data`は解析したルートの値を表すため、実際のコードでは利用する変数名に置き換えてください。
-3. **リセット**で入力と結果を消去します。
+3. **リセット**で入力と結果を消去します。リセットや入力欄の編集で読み込み中のファイルを取り消し、後から完了した読み込みで上書きされることを防ぎます。
+
+数値は、ブラウザ標準の`JSON.parse`から取得した入力原文の表記で表示します。原文の取得に対応しない場合や、深い入れ子で代替の解析を使う場合は、数値を概算として明示し、扱える範囲を超える数値も区別します。アクセスパスの表示は変わりません。
 
 ファイルの上限は5 MiB（5 × 1024 × 1024バイト）です。表示はルートを含む3000ノード・深さ100までで、省略がある場合は結果に表示します。不正なJSONはエラーメッセージを表示します。この表示上限は、入力欄に貼り付けられるテキストのサイズを制限するものではありません。
 

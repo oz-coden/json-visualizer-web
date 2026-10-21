@@ -24,23 +24,11 @@
             <section class="ui-panel">
                 <h2><label for="jsonInput">JSONを入力</label></h2>
                 <textarea id="jsonInput" spellcheck="false" placeholder="JSONを貼り付けるか、ファイルをドロップ">{
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "DDD",
-        " S ",
-        " S "
+    "users": [
+        {"name": "Alice", "active": true},
+        {"name": "Bob", "active": false}
     ],
-    "key": {
-        "D": {
-            "item": "minecraft:dirt"
-        },
-        "S": {
-            "item": "minecraft:stick"
-        }
-    },
-    "result": {
-        "item": "dirtymod:dirt_pickaxe"
-    }
+    "total": 2
 }</textarea>
                 <div class="ui-actions"><button class="action-btn" onclick="parseAndVisualize()">解析する</button><button class="reset-btn" onclick="resetAll()">リセット</button></div>
                 <label for="jsonFile" class="file-label">JSONファイルを開く</label><input type="file" id="jsonFile" accept=".json,application/json">
